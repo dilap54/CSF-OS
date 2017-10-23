@@ -1,7 +1,7 @@
 .data
     # массив для вызова cat log.txt
     cmd_cat: .string "/usr/bin/awk"
-    arg1_cat: .string "{  sum[substr($4,2,11)] += $10;  total += $10; } END { for(i in sum) { printf(\" %d. %s - %d - %.2f%%\\n \" , NR, i, sum[i], sum[i]/total*100); } }"
+    arg1_cat: .string "{  sum[substr($4,2,11)] += $10;  total += $10; } END { for(i in sum) { printf(\" %s - %d - %.2f%%\\n \" , i, sum[i], sum[i]/total*100); } }"
     arg2_cat: .string "log.txt"
     args_cat: .long cmd_cat, arg1_cat, arg2_cat, 0
 
