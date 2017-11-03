@@ -34,6 +34,8 @@ static const char *hello_path = "/hello";
 static const char *readme_str = "Student Дмитрий Лапин 16150061";
 static const char *example_str = "Hello world";
 static char testtxt_str[61*2] = "";
+static char mkdired_path[256] = " ";
+static mode_t *mkdired_mode;
 static int hello_getattr(const char *path, struct stat *stbuf)
 {
     int res = 0;
@@ -83,6 +85,10 @@ static int hello_getattr(const char *path, struct stat *stbuf)
         stbuf->st_nlink = 1;
         stbuf->st_size = strlen(testtxt_str);
     }
+    else if (strcmp(path, mkdired_path) == 0){
+        stbuf->st_mode = mkdired_mode;
+        stbuf->st_nlink = 2;
+    }
     else{
         res = -ENOENT;
     }
@@ -99,6 +105,9 @@ static int hello_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
         filler(buf, "..", NULL, 0);
         filler(buf, "foo", NULL, 0);
         filler(buf, "bar", NULL, 0);
+        if (strcmp(mkdired_path, " ") != 0){
+            filler(buf, mkdired_path+1, NULL, 0);
+        }
         return 0;
     }
     else if (strcmp(path, "/bar") == 0) {
@@ -139,7 +148,7 @@ static int hello_open(const char *path, struct fuse_file_info *fi)
     if ((fi->flags & 3) != O_RDONLY)
             return -EACCES;
     */
-    return 0;
+    return -EACCES;
 }
 static int hello_read(const char *path, char *buf, size_t size, off_t offset,
                       struct fuse_file_info *fi)
@@ -185,10 +194,27 @@ static int hello_read(const char *path, char *buf, size_t size, off_t offset,
         return 0;
     }
 }
+
+static int hello_mkdir(const char *path, mode_t mode){
+    /*
+    strcpy(mkdired_path, "/");
+    strcat(mkdired_path, path);
+    mkdired_mode = mode;
+    return 1;
+    */
+    int res;
+    
+        res = mkdir(path, mode);
+        if (res == -1)
+            return -errno;
+    
+        return 0;
+}
 // fuse_operations hello_oper is redirecting function-calls to _our_ functions implemented above
 static struct fuse_operations hello_oper = {
     .getattr        = hello_getattr,
     .readdir        = hello_readdir,
+    .mkdir          = hello_mkdir,
     .open           = hello_open,
     .read           = hello_read,
 };
