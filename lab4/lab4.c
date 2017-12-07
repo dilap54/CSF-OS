@@ -54,7 +54,7 @@ int deer_count = 0;//Количество оленей у двери
 
 //Функция для вывода текущего времени с миллисекундами
 void printtime(){
-    //Скопипасченный откуда то код
+    //Скопипасченный отсюда код https://stackoverflow.com/questions/2408976/struct-timeval-to-printable-format
     struct timeval tv;
     time_t nowtime;
     struct tm *nowtm;
