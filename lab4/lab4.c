@@ -115,7 +115,7 @@ int main(){
         pthread_create(&deer_thread[i], NULL, deer, i);
     }
     
-    pthread_join(&santa_thread, NULL);//Ждать завершения потока санты (но он никогда не завершится)
+    pthread_join(&santa_thread, NULL);//Ждать завершения потока санты (но он никогда не завершится, т.к. там бесконечный цикл)
 }
 
 //Фукнция, которую вызовет поток эльфа
