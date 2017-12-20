@@ -454,7 +454,11 @@ int main(int argc, char *argv[]){
 	addNode(bin, echo);
 	Link example = createNode("example", "Hello world", S_IFREG | 0222);
 	addNode(baz, example);
-	Link text = createNode("test.txt", "Многобукв", S_IFREG | 007);
+	char testtxt_str[61*2] = "";
+	for (int i=0; i<61*2; i++){//<Любой текст на ваш выбор с количеством строк равным последним двум цифрам номера зачетки>
+        strcat(testtxt_str, "1\n");
+    }
+	Link text = createNode("test.txt", testtxt_str, S_IFREG | 007);
 	addNode(foo, text);
 
 	fuse_main(argc, argv, &my_oper, NULL); // передаём данные можелю ядра ОС - FUSE
