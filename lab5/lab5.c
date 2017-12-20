@@ -33,6 +33,7 @@ fusermount -u /mnt/fuse #размонтировать папку
 #include <stdlib.h>
 #include <fuse.h>
 #include <stdio.h>
+#include <unistd.h>
 #include <string.h>
 #include <errno.h>
 #include <fcntl.h>
@@ -45,28 +46,28 @@ typedef struct Node // объявляем тип "узел"
 	Link parent; //ссылка на "родителя"
 	Link* childs; // массив ссылок на "потомков" - младших узлов, - вложенных в данный
 	int childCount; // число потомков- т.е. число содержащихся элементов.
-	mode_t* mode;
+	mode_t mode;
 } Node;
 
 // это и есть ХРАНИЛИЩЕ ФАЙЛОВОЙ ИЕРАРХИИ СИСТЕМЫ
 //получается , что в данном примере данные храняться условно говоря - в оперативной памяти
-static Link tree;
+Link tree;
 
 /* узел с которым осуществляется текущая работа
 	- использование глобальной переменной не корректно, так как
 	невозможным оказывается, например, работа одновременно с двумя разными файлами. */
-static char* tempFile = "";
+char* tempFile = "";
 
 /* содержимое используемого файла,
 с которым осуществляется взаимодействие -
 опять же не корректно(см. комментарии к объявлению
 предыдущей переменной)
 */
-static char* tempContent = "";
+char* tempContent = "";
 
 /* данная функция "разбивает" переданный путь на составляющие - строит массив, послеждовательно
 хранящий имена директорий (узлов, папок) - которое встречались в данному пути*/
-char** split(char* path){
+char** split(const char* path){
 	char** array; // возвращаемое значение.
 
 	if (strlen(path) > 1) // возм. - "если это не корневая папка" - если длинна пути больше единицы
@@ -134,7 +135,7 @@ char** split(char* path){
 
 /* ищет в иерархихи узел , путь к которому задан как (* path) -
 возвращает ПОЛСЕДНИЙ ОБНАРУЖЕННЫЙ узел пути - самую "младший" во ввложенности обнаруженный файл*/
-Link skNode(Link tree, char* path){
+Link skNode(Link tree, const char* path){
 	char** splited = split(path); // "разбиваем" путь на куски
 
 	int count = 0;// здесь будет храниться число кусков
@@ -167,7 +168,7 @@ Link skNode(Link tree, char* path){
 проверку того, что обнаружденный последней функцию элемент действительно
 является конечным элементом пути
 возвращает укаатель на найденный узел*/
-Link seekNode(Link tree, char* path){
+Link seekNode(Link tree, const char* path){
 	char** splited = split(path); // разбиваем путь на составляющие
 	int count = 0;
 	int i = 0;
@@ -213,7 +214,7 @@ void addNode(Link parent, Link node){
 
 /*создаём узел - записываем данные в область памяти -
 возвращаем указатель на эту область*/
-Link createNode(char* name, char* content, mode_t* mode){
+Link createNode(char* name, char* content, mode_t mode){
 	Link node = (Link)malloc(sizeof(Node));
 	node->name = name;
 	node->content = content;
@@ -241,7 +242,7 @@ void deleteNode(Link node){
 	}
 	parent->childCount--;
 	parent->childs = newChilds;
-	return 0;
+	return;
 }
 
 //DEPRECATED
@@ -262,8 +263,11 @@ static int my_getattr(const char *path, struct stat *stbuf){
 	int res = 0;
 	memset(stbuf, 0, sizeof(struct stat));
 	Link node = seekNode(tree, path);
-	printf(path+"\n");
+	printf("%s \n", path);
 	if (node == 0) return -ENOENT;
+	stbuf->st_uid = 1000;
+	stbuf->st_gid = 1000;
+	stbuf->st_gid = 0;
 	stbuf->st_mode = node->mode;
 	if (node->content == 0)
 	{
@@ -311,27 +315,42 @@ static int my_read(const char *path, char *buf, size_t size, off_t offset, struc
 /*Предоставляет возможность записать в открытый файл - tempFile
 ДАННАЯ РЕАЛИЗАЦИЯ НЕ ДАЁТ ВОЗМОЖНОСТИ ИЗМЕНЯТЬ ФАЙЛ ПОСЛЕ СОЗДАНИЯ -
 ТО ЕСТЬ ОНА ОШИБОЧНА - ФАКТИЧЕСКИ НИКАКОЙ ЗАПИСИ НЕ ПРОИСХОДИТ*/
+/*это единственный момент в данном примере, когда определяется значение tempFile -при этом
+в строке ниже НЕ ПРОИСХОДИТ ОПРЕДЕЛЕНИЯ ТЕКУЩЕГО КОНТЕНТА ФАЙЛА -
+ЭТО ВЫЗЫВАЕТ РЯД ОШИБОК - НАПРИМЕР ПОСЛЕ КОПИРОВАНИЯ ФАЙЛА -
+в tempContent останется именно содержимое последнего записанного файла -
+а уже не нового*/
 //БОЛЬШЕ КАПСЛОКА
+//И ваще это лучше закомментить, хрень какая то написана
+/*
 static int my_write(const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi){
-	tempFile = path; /*это единственный момент в данном примере,
-		когда определяется значение tempFile -при этом
-		в строке ниже НЕ ПРОИСХОДИТ ОПРЕДЕЛЕНИЯ ТЕКУЩЕГО КОНТЕНТА ФАЙЛА -
-		ЭТО ВЫЗЫВАЕТ РЯД ОШИБОК - НАПРИМЕР ПОСЛЕ КОПИРОВАНИЯ ФАЙЛА -
-		в tempContent останется именно содержимое последнего записанного файла -
-		а уже не нового*/
+	tempFile = path; /
 	tempContent = memcpu(tempContent,buf + offset);
 	return strlen(buf+offset);
 }
+*/
 
 /*создаём папку*/
 static int my_mkdir(const char* path, mode_t mode){
+	/*
+	int res;
+    
+	res = mkdir(path, mode);
+	if (res == -1)
+		return -errno;
+	*/
+
 	char** array = split(path);
 	int ct = 0;
 	while(array[ct] != 0) ct++; //ищем индекс конца массива
-	Link node = createNode(array[ct - 1], 0, mode); /* создаём узел - так как это папка - то собственных
+	Link node = createNode(array[ct - 1], 0, S_IFDIR | 0644); /* создаём узел - так как это папка - то собственных
 	данных она не содержит - только потомки.*/
 	Link parent = skNode(tree, path);
+
+	printf("new node array[ct - 1] %s", array[ct - 1]);
+
 	addNode(parent, node);
+
 	return 0;
 }
 /*создаём узел*/
@@ -363,19 +382,23 @@ static int my_rename(const char* old, const char* new){
 }
 
 /*удалям папку*/
+/*
 static int my_rmdir(char* path){ // в данной реализации- просто удаляем узел
 	Link node = seekNode(tree, path);
 	deleteNode(node);
 	return 0;
 }
+*/
 
 /*удаляем файл*/
 //в данной реализации - просто удаляем узел
+/*
 static int my_unlink(char* path){
 	Link node = seekNode(tree, path);
 	deleteNode(node);
 	return 0;
 }
+*/
 
 // структура определённых нами операций
 static struct fuse_operations my_oper = {
@@ -383,12 +406,12 @@ static struct fuse_operations my_oper = {
 	.readdir    = my_readdir,
 	.open       = my_open,
 	.read       = my_read,
-	.write      = my_write, //пишем данные в открытый файл.
+	//.write      = my_write, //пишем данные в открытый файл.
 	.mkdir      = my_mkdir,
 	.mknod      = my_mknod,
 	.rename     = my_rename,
-	.rmdir      = my_rmdir, // удалить директорию
-	.unlink     = my_unlink, // удалить файл
+	//.rmdir      = my_rmdir, // удалить директорию
+	//.unlink     = my_unlink, // удалить файл
 };
 
 int main(int argc, char *argv[]){
@@ -405,9 +428,11 @@ int main(int argc, char *argv[]){
 	Link echo = createNode("echo", "echo", S_IFREG | 0555);
 	addNode(bin, readme);	
 	addNode(bin, echo);
-	Link example = createNode("example", "example", S_IFREG | 0222);
+	Link example = createNode("example", "Hello world", S_IFREG | 0222);
 	addNode(baz, example);
 	Link text = createNode("test.txt", "Многобукв", S_IFREG | 007);
 	addNode(foo, text);
-	return fuse_main(argc, argv, &my_oper, NULL); // передаём данные можелю ядра ОС - FUSE
+
+	fuse_main(argc, argv, &my_oper, NULL); // передаём данные можелю ядра ОС - FUSE
+	return 0;
 }

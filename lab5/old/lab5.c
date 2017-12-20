@@ -81,7 +81,7 @@ static int hello_getattr(const char *path, struct stat *stbuf)
         stbuf->st_nlink = 2;
     }
     else if (strcmp(path, "/foo/test.txt") == 0){
-        stbuf->st_mode = S_IFREG | 007;
+        stbuf->st_mode = S_IFREG | 0007;
         stbuf->st_nlink = 1;
         stbuf->st_size = strlen(testtxt_str);
     }
