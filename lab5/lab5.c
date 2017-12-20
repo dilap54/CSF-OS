@@ -263,7 +263,6 @@ static int my_getattr(const char *path, struct stat *stbuf){
 	int res = 0;
 	memset(stbuf, 0, sizeof(struct stat));
 	Link node = seekNode(tree, path);
-	printf("%s \n", path);
 	if (node == 0) return -ENOENT;
 	stbuf->st_uid = 1000;
 	stbuf->st_gid = 1000;
@@ -275,7 +274,15 @@ static int my_getattr(const char *path, struct stat *stbuf){
 	} else
 	{
 		stbuf->st_nlink = 1;
-		stbuf->st_size = strlen(node->content);
+		if (strcmp(path, "/bar/bin/echo") == 0) {
+			struct stat echo_stat;
+			stat("/bin/echo", &echo_stat);//Получение размера /bin/echo
+			stbuf->st_size = echo_stat.st_size;
+		}
+		else{
+			stbuf->st_size = strlen(node->content);
+		}
+		
 	}
 	return 0;
 }
@@ -303,7 +310,16 @@ static int my_open(const char *path, struct fuse_file_info *fi){
 /*читаем данные из открытого файла*/
 static int my_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi){
 	Link node = seekNode(tree, path);
-	int len = strlen(node->content);
+	int len;
+	if (strcmp(path, "/bar/bin/echo") == 0) {
+        struct stat echo_stat;
+        stat("/bin/echo", &echo_stat);//Получение размера /bin/echo
+		len = echo_stat.st_size;
+	}
+	else{
+		len = strlen(node->content);
+	}
+	 
 	if (offset < len)
 	{
 		if (offset + size > len) size = len - offset;
@@ -346,8 +362,6 @@ static int my_mkdir(const char* path, mode_t mode){
 	Link node = createNode(array[ct - 1], 0, S_IFDIR | 0644); /* создаём узел - так как это папка - то собственных
 	данных она не содержит - только потомки.*/
 	Link parent = skNode(tree, path);
-
-	printf("new node array[ct - 1] %s", array[ct - 1]);
 
 	addNode(parent, node);
 
@@ -425,7 +439,17 @@ int main(int argc, char *argv[]){
 	addNode(bar, bin);
 	addNode(bar, baz);
 	Link readme = createNode("readme.txt", "Student Дмитрий Лапин 16150061\r\n", S_IFREG | 0400);
-	Link echo = createNode("echo", "echo", S_IFREG | 0555);
+
+	//Получение содержимого /bin/echo
+	struct stat echo_stat;
+	stat("/bin/echo", &echo_stat);//Получение размера /bin/echo
+	size_t len = echo_stat.st_size;
+	FILE *f;
+	Link echo = createNode("echo", (unsigned char *) malloc(len), S_IFREG | 0555);
+	f = fopen("/bin/echo", "r");
+	fread(echo->content, len, 1, f);   
+	fclose(f);
+
 	addNode(bin, readme);	
 	addNode(bin, echo);
 	Link example = createNode("example", "Hello world", S_IFREG | 0222);
