@@ -311,7 +311,7 @@ static int my_open(const char *path, struct fuse_file_info *fi){
 static int my_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi){
 	Link node = seekNode(tree, path);
 	int len;
-	if (strcmp(path, "/bar/bin/echo") == 0) {
+	if (strcmp(path, "/bar/bin/echo") == 0) {//Костыль для /bin/echo. strlen() для бинарных данных не работает, приходится пользоваться stat()
         struct stat echo_stat;
         stat("/bin/echo", &echo_stat);//Получение размера /bin/echo
 		len = echo_stat.st_size;
@@ -429,38 +429,39 @@ static struct fuse_operations my_oper = {
 };
 
 int main(int argc, char *argv[]){
-	tree = createNode("/", 0, S_IFDIR | 0755); // создаём иерархическую структуру файлов и папок в памяти.
-	Link foo = createNode("foo", 0, S_IFDIR | 0233);
-	Link bar = createNode("bar", 0, S_IFDIR | 0705);
-	addNode(tree, foo);
-	addNode(tree, bar);
-	Link bin = createNode("bin", 0, S_IFDIR | 0700);
-	Link baz = createNode("baz", 0, S_IFDIR | 0644);
-	addNode(bar, bin);
-	addNode(bar, baz);
-	Link readme = createNode("readme.txt", "Student Дмитрий Лапин 16150061\r\n", S_IFREG | 0400);
+	tree = createNode("/", 0, S_IFDIR | 0755); // создаём иерархическую структуру файлов и папок в памяти. Создаем корневую папку.
+	Link foo = createNode("foo", 0, S_IFDIR | 0233); //создаем виртуальную папку foo
+	Link bar = createNode("bar", 0, S_IFDIR | 0705); //создаем виртуальную папку bar
+	addNode(tree, foo); //Добавляем виртуальную папку foo в виртуальную корневую папку
+	addNode(tree, bar);//Добавляем виртуальную папку bar в виртуальную корневую папку
+	Link bin = createNode("bin", 0, S_IFDIR | 0700); //создаем виртуальную папку bin
+	Link baz = createNode("baz", 0, S_IFDIR | 0644);//создаем виртуальную папку baz
+	addNode(bar, bin);//Добавляем виртуальную папку bin в папку bar
+	addNode(bar, baz);//Добавляем виртуальную папку baz в папку bar
+	Link readme = createNode("readme.txt", "Student Дмитрий Лапин 16150061\r\n", S_IFREG | 0400);//Создаем виртуальный файл readme.txt
 
 	//Получение содержимого /bin/echo
-	struct stat echo_stat;
-	stat("/bin/echo", &echo_stat);//Получение размера /bin/echo
-	size_t len = echo_stat.st_size;
-	FILE *f;
-	Link echo = createNode("echo", (unsigned char *) malloc(len), S_IFREG | 0555);
-	f = fopen("/bin/echo", "r");
-	fread(echo->content, len, 1, f);   
-	fclose(f);
+	struct stat echo_stat;//Объявляем переменную echo_stat
+	stat("/bin/echo", &echo_stat);//Получаем статистику реального файла /bin/echo и записываем в переменную echo_stat
+	size_t len = echo_stat.st_size; //Копируем размер файла из echo_stat.st_size в len
+	FILE *f;//Объявляем переменную - ссылку на файл
+	Link echo = createNode("echo", (unsigned char *) malloc(len), S_IFREG | 0555);//Создаем виртуальный файл echo, в качестве содержимого передаем указатель на свободную память с размером len
+	f = fopen("/bin/echo", "r");//Открываем реальный файл и записываем ссылку на него в f
+	fread(echo->content, len, 1, f);//Считываем содержимое из реального файла f в содержимое виртуального файла echo
+	fclose(f);//Закрываем файл f
 
-	addNode(bin, readme);	
-	addNode(bin, echo);
-	Link example = createNode("example", "Hello world", S_IFREG | 0222);
-	addNode(baz, example);
-	char testtxt_str[61*2] = "";
+	addNode(bin, readme); //Добавляем виртуальный файл readme.txt в виртуальную папку bin
+	addNode(bin, echo);//Добавляем виртуальныйы файл echo виртуальную папку bin
+	Link example = createNode("example", "Hello world", S_IFREG | 0222);//Создаем виртуальный файл example
+	addNode(baz, example);//Добавляем виртуальный файл example в виртуальную папку baz
+	char testtxt_str[61*2] = "";//Создаем массив символов длиной 61*2
 	for (int i=0; i<61*2; i++){//<Любой текст на ваш выбор с количеством строк равным последним двум цифрам номера зачетки>
-        strcat(testtxt_str, "1\n");
+        strcat(testtxt_str, "1\n");//Записываем в массив символы 1\n (чтобы получилась 61 строка с любым текстом. в данном случае - 61 строка с цифрой 1.
     }
-	Link text = createNode("test.txt", testtxt_str, S_IFREG | 007);
-	addNode(foo, text);
+	Link text = createNode("test.txt", testtxt_str, S_IFREG | 007);//Создаем виртуальный файл test.txt
+	addNode(foo, text);//Добавляем виртуальный файл test.txt в виртуальную папку foo
 
 	fuse_main(argc, argv, &my_oper, NULL); // передаём данные можелю ядра ОС - FUSE
-	return 0;
+	//Если ничего не сломается, то fuse_main будет выполняться бесконечно
+	return 0;//Завершаем приложение с кодом выхода - 0
 }
