@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Создано Microsoft Visio, экспорт SVG StatechartLab3.svg Страница-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		width="12.5225in" height="0.987077in" viewBox="0 0 901.619 71.0696" xml:space="preserve" color-interpolation-filters="sRGB"
+		class="st13">
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#5b9bd5;stroke:#5b9bd5;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st2 {fill:#5b9bd5;font-family:Calibri;font-size:1.00001em}
+		.st3 {fill:#73ae42;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st4 {fill:#73ae42;stroke:#73ae42;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st5 {fill:#ffffff;font-family:Calibri;font-size:1.00001em;font-weight:bold}
+		.st6 {fill:#ffffff;stroke:#73ae42;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st7 {marker-end:url(#mrkr4-25);stroke:#5592c9;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st8 {fill:#5592c9;fill-opacity:1;stroke:#5592c9;stroke-opacity:1;stroke-width:0.16556291390728}
+		.st9 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
+		.st10 {fill:#41719d;font-family:Calibri;font-size:1.5em}
+		.st11 {fill:#4271c6}
+		.st12 {stroke:#4271c6;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st13 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Markers">
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr4-25" class="st8" refX="-12.08" orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-6.04,-6.04) "/>
+		</marker>
+	</defs>
+	<g>
+		<title>Страница-1</title>
+		<g id="shape1-1" transform="translate(40.5693,-36.8038)">
+			<title>Начальное состояние</title>
+			<desc>Исходное состояние</desc>
+			<ellipse cx="17.0079" cy="54.0617" rx="17.0079" ry="17.0079" class="st1"/>
+			<text x="-35.21" y="85.87" class="st2">Исходное состояние</text>		</g>
+		<g id="group2-4" transform="translate(129.906,-36.8038)">
+			<title>Состояние</title>
+			<g id="shape2-5">
+				<rect x="0" y="37.0538" width="141.775" height="34.0157" rx="8.50394" ry="8.50394" class="st3"/>
+			</g>
+			<g id="shape3-7" transform="translate(0,-11.612)">
+				<title>Лист.3</title>
+				<desc>Исходные данные log.txt</desc>
+				<path d="M8.5 71.07 L133.27 71.07 A8.50394 8.50394 -180 0 0 141.77 62.57 L141.77 57.17 A8.50394 8.50394 -180 0 0
+							 133.27 48.67 L8.5 48.67 A8.50394 8.50394 -180 0 0 -0 57.17 L0 62.57 A8.50394 8.50394 -180 0 0 8.5 71.07
+							 Z" class="st4"/>
+				<text x="5.36" y="63.47" class="st5">Исходные данные log.txt</text>			</g>
+			<g id="shape4-10">
+				<title>Лист.4</title>
+				<path d="M5.81 71.07 L135.97 71.07 A5.80602 5.80602 -180 0 0 141.77 65.26 L141.77 65.26 A5.80602 5.80602 -180 0 0
+							 135.97 59.46 L5.81 59.46 A5.80602 5.80602 -180 0 0 -0 65.26 L0 65.26 A5.80602 5.80602 -180 0 0 5.81
+							 71.07 Z" class="st6"/>
+			</g>
+		</g>
+		<g id="group5-12" transform="translate(327.002,-36.8038)">
+			<title>Состояние.5</title>
+			<g id="shape5-13">
+				<rect x="0" y="37.0538" width="131.99" height="34.0157" rx="8.50394" ry="8.50394" class="st3"/>
+			</g>
+			<g id="shape6-15" transform="translate(0,-11.612)">
+				<title>Лист.6</title>
+				<desc>Обработанные данные</desc>
+				<path d="M8.5 71.07 L123.49 71.07 A8.50394 8.50394 -180 0 0 131.99 62.57 L131.99 57.17 A8.50394 8.50394 -180 0 0
+							 123.49 48.67 L8.5 48.67 A8.50394 8.50394 -180 0 0 -0 57.17 L0 62.57 A8.50394 8.50394 -180 0 0 8.5 71.07
+							 Z" class="st4"/>
+				<text x="5.36" y="63.47" class="st5">Обработанные данные</text>			</g>
+			<g id="shape7-18">
+				<title>Лист.7</title>
+				<path d="M5.81 71.07 L126.18 71.07 A5.80602 5.80602 -180 0 0 131.99 65.26 L131.99 65.26 A5.80602 5.80602 -180 0 0
+							 126.18 59.46 L5.81 59.46 A5.80602 5.80602 -180 0 0 -0 65.26 L0 65.26 A5.80602 5.80602 -180 0 0 5.81
+							 71.07 Z" class="st6"/>
+			</g>
+		</g>
+		<g id="shape8-20" transform="translate(74.5851,-46.7251)">
+			<title>Динамическая соединительная линия</title>
+			<path d="M0 63.98 L49.28 63.98" class="st7"/>
+		</g>
+		<g id="shape9-26" transform="translate(271.681,-46.7251)">
+			<title>Динамическая соединительная линия.9</title>
+			<desc>Awk</desc>
+			<path d="M0 63.98 L49.28 63.98" class="st7"/>
+			<rect x="11.9282" y="53.1832" width="31.4648" height="21.5999" class="st9"/>
+			<text x="11.93" y="69.38" class="st10">Awk</text>		</g>
+		<g id="shape14-33" transform="translate(458.992,-46.7251)">
+			<title>Динамическая соединительная линия.14</title>
+			<desc>sort</desc>
+			<path d="M0 63.98 L49.28 63.98" class="st7"/>
+			<rect x="13.2422" y="53.1832" width="28.8369" height="21.5999" class="st9"/>
+			<text x="13.24" y="69.38" class="st10">sort</text>		</g>
+		<g id="group11-40" transform="translate(514.313,-36.8038)">
+			<title>Состояние.11</title>
+			<g id="shape11-41">
+				<rect x="0" y="37.0538" width="148.495" height="34.0157" rx="8.50394" ry="8.50394" class="st3"/>
+			</g>
+			<g id="shape12-43" transform="translate(0,-11.612)">
+				<title>Лист.12</title>
+				<desc>Отсортированные данные</desc>
+				<path d="M8.5 71.07 L139.99 71.07 A8.50394 8.50394 -180 0 0 148.5 62.57 L148.5 57.17 A8.50394 8.50394 -180 0 0 139.99
+							 48.67 L8.5 48.67 A8.50394 8.50394 -180 0 0 0 57.17 L0 62.57 A8.50394 8.50394 -180 0 0 8.5 71.07 Z"
+						class="st4"/>
+				<text x="5.36" y="63.47" class="st5">Отсортированные данные</text>			</g>
+			<g id="shape13-46">
+				<title>Лист.13</title>
+				<path d="M5.81 71.07 L142.69 71.07 A5.80602 5.80602 -180 0 0 148.5 65.26 L148.5 65.26 A5.80602 5.80602 -180 0 0 142.69
+							 59.46 L5.81 59.46 A5.80602 5.80602 -180 0 0 0 65.26 L0 65.26 A5.80602 5.80602 -180 0 0 5.81 71.07 Z"
+						class="st6"/>
+			</g>
+		</g>
+		<g id="shape18-48" transform="translate(662.808,-46.7251)">
+			<title>Динамическая соединительная линия.18</title>
+			<desc>head</desc>
+			<path d="M0 63.98 L49.28 63.98" class="st7"/>
+			<rect x="9.41455" y="53.1832" width="36.4922" height="21.5999" class="st9"/>
+			<text x="9.41" y="69.38" class="st10">head</text>		</g>
+		<g id="group15-55" transform="translate(718.13,-36.8038)">
+			<title>Состояние.15</title>
+			<g id="shape15-56">
+				<rect x="0" y="37.0538" width="93.9024" height="34.0157" rx="8.50394" ry="8.50394" class="st3"/>
+			</g>
+			<g id="shape16-58" transform="translate(0,-11.612)">
+				<title>Лист.16</title>
+				<desc>Данные - топ 10</desc>
+				<path d="M8.5 71.07 L85.4 71.07 A8.50394 8.50394 -180 0 0 93.9 62.57 L93.9 57.17 A8.50394 8.50394 -180 0 0 85.4 48.67
+							 L8.5 48.67 A8.50394 8.50394 -180 0 0 0 57.17 L0 62.57 A8.50394 8.50394 -180 0 0 8.5 71.07 Z"
+						class="st4"/>
+				<text x="5.36" y="63.47" class="st5">Данные - топ 10</text>			</g>
+			<g id="shape17-61">
+				<title>Лист.17</title>
+				<path d="M5.81 71.07 L88.1 71.07 A5.80602 5.80602 -180 0 0 93.9 65.26 L93.9 65.26 A5.80602 5.80602 -180 0 0 88.1
+							 59.46 L5.81 59.46 A5.80602 5.80602 -180 0 0 0 65.26 L0 65.26 A5.80602 5.80602 -180 0 0 5.81 71.07 Z"
+						class="st6"/>
+			</g>
+		</g>
+		<g id="shape19-63" transform="translate(867.353,-36.8038)">
+			<title>Конечное состояние</title>
+			<path d="M30.61 54.06 A13.6063 13.6063 -180 1 0 3.4 54.06 A13.6063 13.6063 -180 1 0 30.61 54.06 Z" class="st11"/>
+			<path d="M34.02 54.06 A17.0079 17.0079 -180 1 0 0 54.06 A17.0079 17.0079 -180 1 0 34.02 54.06" class="st12"/>
+			<path d="M30.61 54.06 A13.6063 13.6063 -180 1 0 3.4 54.06 A13.6063 13.6063 -180 1 0 30.61 54.06" class="st12"/>
+		</g>
+		<g id="shape20-67" transform="translate(812.032,-46.7251)">
+			<title>Динамическая соединительная линия.20</title>
+			<path d="M0 63.98 L49.28 63.98" class="st7"/>
+		</g>
+	</g>
+</svg>

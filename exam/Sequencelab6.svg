@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Создано Microsoft Visio, экспорт SVG Sequencelab6.svg Страница-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		width="3.35266in" height="4.29734in" viewBox="0 0 241.392 309.409" xml:space="preserve" color-interpolation-filters="sRGB"
+		class="st10">
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#45b664;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st2 {stroke:#40ab5e;stroke-dasharray:3.5,2.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st3 {fill:#ffffff;font-family:Segoe UI;font-size:1.5em;font-weight:bold}
+		.st4 {fill:#4472c4;stroke:#3f6bb9;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st5 {marker-end:url(#mrkr4-36);stroke:#3f6bb9;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st6 {fill:#3f6bb9;fill-opacity:1;stroke:#3f6bb9;stroke-opacity:1;stroke-width:0.13368983957219}
+		.st7 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
+		.st8 {fill:#2f5290;font-family:Segoe UI;font-size:0.833336em}
+		.st9 {fill:#ffffff;stroke:none;stroke-linecap:butt}
+		.st10 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Markers">
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr4-36" class="st6" refX="-14.96" orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-7.48,-7.48) "/>
+		</marker>
+	</defs>
+	<g>
+		<title>Страница-1</title>
+		<g id="group38-1" transform="translate(0.25,-279.326)">
+			<title>Actor lifeline</title>
+			<desc>Клиент</desc>
+			<g id="shape39-2" transform="translate(19.8425,5.68434E-14)">
+				<title>Лист.39</title>
+				<rect x="0" y="283.897" width="51.0236" height="25.5118" class="st1"/>
+			</g>
+			<g id="shape40-4" transform="translate(36.8504,-29.0551)">
+				<title>Лист.40</title>
+				<path d="M8.5 309.41 a6.99441E-15 0 0 1 1 -1.42109E-14 0 a6.99441E-15 0 0 1 1 1.42109E-14 0 Z" class="st1"/>
+			</g>
+			<g id="shape41-6" transform="translate(30.2362,216.681)">
+				<title>Лист.41</title>
+			</g>
+			<g id="shape42-8" transform="translate(354.763,309.409) rotate(90)">
+				<title>Лист.42</title>
+				<path d="M0 309.41 L199.07 309.41" class="st2"/>
+			</g>
+			<g id="shape38-11">
+				<rect x="0" y="283.897" width="90.7087" height="25.5118" class="st1"/>
+				<text x="13.97" y="302.05" class="st3">Клиент</text>			</g>
+		</g>
+		<g id="group43-14" transform="translate(136.313,-280.103)">
+			<title>Object lifeline</title>
+			<desc>Сервер</desc>
+			<g id="shape44-15" transform="translate(19.8425,5.68434E-14)">
+				<title>Лист.44</title>
+				<rect x="0" y="283.897" width="51.0236" height="25.5118" class="st1"/>
+			</g>
+			<g id="shape45-17" transform="translate(36.8504,-29.0551)">
+				<title>Лист.45</title>
+				<path d="M8.5 309.41 a0 0 0 1 1 0 0 a0 0 0 1 1 0 0 Z" class="st1"/>
+			</g>
+			<g id="shape46-19" transform="translate(30.2362,280.103)">
+				<title>Лист.46</title>
+			</g>
+			<g id="shape47-21" transform="translate(354.763,309.409) rotate(90)">
+				<title>Лист.47</title>
+				<path d="M0 309.41 L262.49 309.41" class="st2"/>
+			</g>
+			<g id="shape43-24">
+				<rect x="0" y="283.897" width="90.7087" height="25.5118" class="st1"/>
+				<text x="13.62" y="302.05" class="st3">Сервер</text>			</g>
+		</g>
+		<g id="shape59-27" transform="translate(-259.552,64.0981) rotate(-90)">
+			<title>Activation</title>
+			<rect x="0" y="300.905" width="17.0079" height="8.50394" class="st4"/>
+		</g>
+		<g id="shape60-29" transform="translate(-123.489,131.352) rotate(-90)">
+			<title>Активация.60</title>
+			<rect x="0" y="300.905" width="85.0394" height="8.50394" class="st4"/>
+		</g>
+		<g id="shape140-31" transform="translate(42.7697,-262.318)">
+			<title>Self Message.23</title>
+			<desc>socket()</desc>
+			<path d="M7.09 309.41 L25.09 309.41 L25.09 326.42 L14.57 326.42" class="st5"/>
+			<rect x="20.386" y="311.667" width="34.346" height="12.0001" class="st7"/>
+			<text x="20.39" y="320.67" class="st8">socket()</text>		</g>
+		<g id="shape141-39" transform="translate(178.833,-263.096)">
+			<title>Self Message.141</title>
+			<desc>socket()</desc>
+			<path d="M7.09 309.41 L25.09 309.41 L25.09 326.42 L14.57 326.42" class="st5"/>
+			<rect x="20.386" y="311.667" width="34.346" height="12.0001" class="st7"/>
+			<text x="20.39" y="320.67" class="st8">socket()</text>		</g>
+		<g id="shape142-46" transform="translate(178.833,-229.08)">
+			<title>Self Message.142</title>
+			<desc>bind()</desc>
+			<path d="M7.09 309.41 L25.09 309.41 L25.09 326.42 L14.57 326.42" class="st5"/>
+			<rect x="24.6168" y="311.667" width="25.8843" height="12.0001" class="st9"/>
+			<text x="24.62" y="320.67" class="st8">bind()</text>		</g>
+		<g id="shape143-53" transform="translate(178.833,-192.229)">
+			<title>Self Message.143</title>
+			<desc>listen()</desc>
+			<path d="M7.09 309.41 L25.09 309.41 L25.09 323.58 L14.57 323.58" class="st5"/>
+			<rect x="22.859" y="310.291" width="29.4" height="12.0001" class="st7"/>
+			<text x="22.86" y="319.29" class="st8">listen()</text>		</g>
+		<g id="shape144-60" transform="translate(-259.552,157.641) rotate(-90)">
+			<title>Activation.144</title>
+			<rect x="0" y="300.905" width="19.2024" height="8.50394" class="st4"/>
+		</g>
+		<g id="shape145-62" transform="translate(49.8563,-156.796)">
+			<title>Сообщение.21</title>
+			<desc>connect()</desc>
+			<path d="M0 302.32 L120.08 302.32" class="st5"/>
+			<rect x="43.2447" y="296.322" width="41.0699" height="12.0001" class="st7"/>
+			<text x="43.24" y="305.32" class="st8">connect()</text>		</g>
+		<g id="shape146-69" transform="translate(181.667,-146.166)">
+			<title>Сообщение.146</title>
+			<desc>accept()</desc>
+			<path d="M0 303.03 L-124.33 301.69" class="st5"/>
+			<rect x="-83.3351" y="296.322" width="34.8591" height="12.0001" class="st7"/>
+			<text x="-83.34" y="305.32" class="st8">accept()</text>		</g>
+		<g id="shape147-76" transform="translate(-259.552,191.657) rotate(-90)">
+			<title>Activation.147</title>
+			<rect x="0" y="300.905" width="19.8425" height="8.50394" class="st4"/>
+		</g>
+		<g id="shape148-78" transform="translate(-123.489,161.893) rotate(-90)">
+			<title>Activation.148</title>
+			<rect x="0" y="300.905" width="19.2024" height="8.50394" class="st4"/>
+		</g>
+		<g id="shape149-80" transform="translate(-123.489,190.88) rotate(-90)">
+			<title>Activation.149</title>
+			<rect x="0" y="300.905" width="19.8425" height="8.50394" class="st4"/>
+		</g>
+		<g id="shape150-82" transform="translate(49.8563,-130.896)">
+			<title>Сообщение.150</title>
+			<desc>send()</desc>
+			<path d="M0 302.71 L120.08 301.98" class="st5"/>
+			<rect x="50.2515" y="296.322" width="27.056" height="12.0001" class="st7"/>
+			<text x="50.25" y="305.32" class="st8">send()</text>		</g>
+		<g id="shape152-89" transform="translate(177.415,-128.061)">
+			<title>Сообщение.152</title>
+			<desc>recv()</desc>
+			<path d="M0 316.11 L-120.08 316.84" class="st5"/>
+			<rect x="-75.8549" y="310.495" width="24.1507" height="12.0001" class="st7"/>
+			<text x="-75.85" y="319.5" class="st8">recv()</text>		</g>
+		<g id="shape154-96" transform="translate(-259.552,228.508) rotate(-90)">
+			<title>Activation.154</title>
+			<rect x="0" y="300.905" width="19.8425" height="8.50394" class="st4"/>
+		</g>
+		<g id="shape155-98" transform="translate(42.7697,-100.744)">
+			<title>Самостоятельно созданное сообщение.155</title>
+			<desc>close()</desc>
+			<path d="M7.09 309.41 L25.09 309.41 L25.09 326.42 L14.57 326.42" class="st5"/>
+			<rect x="12.7248" y="311.136" width="28.4084" height="12.0001" class="st7"/>
+			<text x="12.72" y="320.14" class="st8">close()</text>		</g>
+	</g>
+</svg>

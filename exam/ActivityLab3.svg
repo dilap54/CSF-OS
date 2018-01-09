@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Создано Microsoft Visio, экспорт SVG ActivityLab3.svg Страница-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		width="7.53254in" height="4.16338in" viewBox="0 0 542.343 299.764" xml:space="preserve" color-interpolation-filters="sRGB"
+		class="st14">
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#5b9bd5;stroke:#5b9bd5;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st2 {fill:#5b9bd5;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st3 {fill:#5b9bd5;font-family:Calibri;font-size:1.16666em}
+		.st4 {marker-end:url(#mrkr4-11);stroke:#5592c9;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st5 {fill:#5592c9;fill-opacity:1;stroke:#5592c9;stroke-opacity:1;stroke-width:0.16556291390728}
+		.st6 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
+		.st7 {fill:#41719d;font-family:Calibri;font-size:1.00001em}
+		.st8 {fill:#73ae42;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st9 {fill:#ffffff;font-family:Calibri;font-size:1.16666em}
+		.st10 {font-size:1em}
+		.st11 {fill:#ffffff;font-family:Calibri;font-size:1.00001em}
+		.st12 {fill:#a5a5a5}
+		.st13 {stroke:#a5a5a5;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st14 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Markers">
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr4-11" class="st5" refX="-12.08" orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-6.04,-6.04) "/>
+		</marker>
+	</defs>
+	<g>
+		<title>Страница-1</title>
+		<g id="shape1-1" transform="translate(199.1,-265.498)">
+			<title>Начальный узел</title>
+			<ellipse cx="17.0079" cy="282.756" rx="17.0079" ry="17.0079" class="st1"/>
+		</g>
+		<g id="shape2-3" transform="translate(199.1,-198.458)">
+			<title>Решение</title>
+			<desc>Все строки обработаны?</desc>
+			<path d="M17.01 299.76 L34.02 282.76 L17.01 265.75 L0 282.76 L17.01 299.76 Z" class="st2"/>
+			<text x="-56.06" y="316.37" class="st3">Все строки обработаны?</text>		</g>
+		<g id="shape4-6" transform="translate(209.022,-198.458)">
+			<title>Динамическая соединительная линия</title>
+			<desc>Нет</desc>
+			<path d="M7.09 299.76 L7.09 361.93" class="st4"/>
+			<rect x="-1.96026" y="326.667" width="18.0939" height="14.4001" class="st6"/>
+			<text x="-1.96" y="337.47" class="st7">Нет</text>		</g>
+		<g id="shape3-14" transform="translate(159.415,-88.649)">
+			<title>Действие</title>
+			<desc>Взять строку файла</desc>
+			<rect x="0" y="258.16" width="113.386" height="41.6033" rx="8.50394" ry="8.50394" class="st8"/>
+			<text x="19.57" y="274.76" class="st9">Взять строку <tspan x="38.26" dy="1.2em" class="st10">файла</tspan></text>		</g>
+		<g id="shape8-18" transform="translate(209.022,-88.649)">
+			<title>Динамическая соединительная линия.8</title>
+			<path d="M7.09 299.76 L7.09 323.55" class="st4"/>
+		</g>
+		<g id="shape7-23" transform="translate(199.1,-24.8035)">
+			<title>Решение.7</title>
+			<desc>Это строка с нужными данными?</desc>
+			<path d="M17.01 299.76 L34.02 282.76 L17.01 265.75 L0 282.76 L17.01 299.76 Z" class="st2"/>
+			<text x="-81.98" y="316.37" class="st3">Это строка с нужными данными?</text>		</g>
+		<g id="shape10-26" transform="translate(199.1,-47.0011)">
+			<title>Динамическая соединительная линия.10</title>
+			<desc>Да</desc>
+			<path d="M0 304.95 L-36 304.95 L-36 308.75 L-79.42 308.75" class="st4"/>
+			<rect x="-47.5738" y="301.547" width="13.4767" height="14.4001" class="st6"/>
+			<text x="-47.57" y="312.35" class="st7">Да</text>		</g>
+		<g id="shape9-33" transform="translate(0.25,-17.2159)">
+			<title>Действие.9</title>
+			<desc>Прибавить к счетчику</desc>
+			<rect x="0" y="258.16" width="113.386" height="41.6033" rx="8.50394" ry="8.50394" class="st8"/>
+			<text x="19.83" y="274.76" class="st9">Прибавить к <tspan x="30.78" dy="1.2em" class="st10">счетчику</tspan></text>		</g>
+		<g id="shape11-37" transform="translate(56.9429,-58.8192)">
+			<title>Динамическая соединительная линия.11</title>
+			<path d="M0 299.76 L0 103.43 L153.13 103.43" class="st4"/>
+		</g>
+		<g id="shape13-42" transform="translate(233.116,-208.38)">
+			<title>Динамическая соединительная линия.13</title>
+			<desc>Да</desc>
+			<path d="M0 292.68 L65.96 292.68" class="st4"/>
+			<rect x="29.2616" y="285.477" width="13.4767" height="14.4001" class="st6"/>
+			<text x="29.26" y="296.28" class="st7">Да</text>		</g>
+		<g id="shape12-49" transform="translate(305.116,-177.865)">
+			<title>Действие.12</title>
+			<desc>Вывести информацию в stdout в нужном виде</desc>
+			<rect x="0" y="224.561" width="113.386" height="75.203" rx="8.50394" ry="8.50394" class="st8"/>
+			<text x="31.93" y="241.16" class="st9">Вывести <tspan x="11.78" dy="1.2em" class="st10">информацию в </tspan><tspan
+						x="7.8" dy="1.2em" class="st10">stdout </tspan>в нужном <tspan x="42.17" dy="1.2em" class="st10">виде</tspan></text>		</g>
+		<g id="shape14-55" transform="translate(223.195,-58.8192)">
+			<title>Динамическая соединительная линия.14</title>
+			<path d="M-7.09 299.76 L-7.09 277.02 L-96.18 277.02 L-96.18 103.43 L-13.13 103.43" class="st4"/>
+		</g>
+		<g id="shape15-60" transform="translate(209.022,-265.498)">
+			<title>Динамическая соединительная линия.15</title>
+			<path d="M7.09 299.76 L7.09 326.75" class="st4"/>
+		</g>
+		<g id="shape17-65" transform="translate(416.518,-208.38)">
+			<title>Динамическая соединительная линия.17</title>
+			<path d="M1.98 292.68 L6.15 292.68" class="st4"/>
+		</g>
+		<g id="shape16-70" transform="translate(428.707,-189.864)">
+			<title>Действие.16</title>
+			<desc>Отсортировать строки с помощью sort</desc>
+			<rect x="0" y="248.56" width="113.386" height="51.2039" rx="8.50394" ry="8.50394" class="st8"/>
+			<text x="18.77" y="263.36" class="st11">Отсортировать <tspan x="9.09" dy="1.2em" class="st10">строки с помощью </tspan><tspan
+						x="47.08" dy="1.2em" class="st10">sort</tspan></text>		</g>
+		<g id="shape19-75" transform="translate(478.313,-189.864)">
+			<title>Динамическая соединительная линия.19</title>
+			<path d="M7.09 299.76 L7.09 313.48" class="st4"/>
+		</g>
+		<g id="shape18-80" transform="translate(428.707,-133.308)">
+			<title>Действие.18</title>
+			<desc>Выбрать топ-10 с помощью head</desc>
+			<rect x="0" y="262.96" width="113.386" height="36.8038" rx="8.50394" ry="8.50394" class="st8"/>
+			<text x="13.29" y="277.76" class="st11">Выбрать топ-10 с <tspan x="18.02" dy="1.2em" class="st10">помощью </tspan>head</text>		</g>
+		<g id="shape22-84" transform="translate(468.392,-79.5401)">
+			<title>Конечный узел</title>
+			<path d="M30.61 282.76 A13.6063 13.6063 -180 1 0 3.4 282.76 A13.6063 13.6063 -180 1 0 30.61 282.76 Z" class="st12"/>
+			<path d="M34.02 282.76 A17.0079 17.0079 -180 1 0 0 282.76 A17.0079 17.0079 -180 1 0 34.02 282.76" class="st13"/>
+			<path d="M30.61 282.76 A13.6063 13.6063 -180 1 0 3.4 282.76 A13.6063 13.6063 -180 1 0 30.61 282.76" class="st13"/>
+		</g>
+		<g id="shape23-88" transform="translate(478.313,-133.308)">
+			<title>Динамическая соединительная линия.23</title>
+			<path d="M7.09 299.76 L7.09 313.48" class="st4"/>
+		</g>
+	</g>
+</svg>
